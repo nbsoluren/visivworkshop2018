@@ -31,4 +31,22 @@ webpage = urlopen(req).read()
 #Passing it through BeautifulSoup so we can parse through it.
 soup = BeautifulSoup(webpage, 'html.parser')
 
+#Get the Chapter Links of the Manga
 chapter_links = get_chapter_links(soup)
+
+#Iterrating through each chapter
+chapter_img_links = []
+for chapter in chapter_links:
+    req = Request(chapter, headers={'User-Agent': 'Mozilla/5.0'})
+    chapter_page = urlopen(req).read()
+
+    #Getting Img Link for Each chapter
+    soup_chapter = BeautifulSoup(chapter_page, 'html.parser').find_all("img", class_="img_content")
+    img_links = []
+    for i in soup_chapter:
+        img_links.append(i['src'])
+    chapter_img_links.append(soup_chapter)
+
+file = open("butt" + ".html","w+")
+file.write(str(chapter_img_links))
+file.close()
