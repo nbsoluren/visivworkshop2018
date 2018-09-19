@@ -34,7 +34,7 @@ def download_images_per_chapter(img_links, folder):
         req = Request(img, headers={'User-Agent': 'Mozilla/5.0'})
         webpage = urlopen(req).read()
         filename = img.split('/')[-1]
-        output = open(folder+filename,"wb")
+        output = open(folder+"/"+filename,"wb")
         output.write(webpage)
         output.close()
 
@@ -67,7 +67,7 @@ for chapter in chapter_links:
     img_links = get_img_links(chapter_page)
 
     #Download images per chapter
-    download_images_per_chapter(imglinks,folder)
+    download_images_per_chapter(img_links,folder)
 
     #increment counter
     count = count+1
