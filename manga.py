@@ -40,7 +40,7 @@ def download_images_per_chapter(img_links, folder):
 
 
 url = input("Happy to serve. Enter URL: ")
-url = 'http://mangakakalot.com/manga/the_freudstein_twins'
+url = 'https://manganelo.com/manga/about_death'
 
 #Retrieving the sourcecode
 #We are pretending to be Mozilla browser
