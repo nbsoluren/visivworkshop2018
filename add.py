@@ -43,3 +43,13 @@ for i in soup_chapter:
 file = open("moot" + ".html","w+")
 file.write(str(img_links))
 file.close()
+
+#Retrieving Image data and storing it in imgdata
+folder = make_folder("Chapter X") #Makes folder to store Img in
+url = 'http://s5.mkklcdnv2.com/mangakakalot/a1/about_death/chapter_24/1.jpg'
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+imgdata = urlopen(req).read()
+filename = url.split('/')[-1]
+output = open(folder+"/"+filename,"wb")
+output.write(imgdata)
+output.close()
