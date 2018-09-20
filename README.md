@@ -1,5 +1,8 @@
 # VISIV Workshop on Web Scraping  :japanese_ogre:
 
+## Get the slides here:
+https://docs.google.com/presentation/d/1D-_1CXZ2bw9INqzd_IjUHwrhcRW_-Xu0P-XJoeRVq7s/edit?usp=sharing
+
 Technopedia defines it as:
 
 > Web scraping is essentially a form of data mining. Items like weather reports, auction details, market pricing, or any other list of collected data can be sought in Web scraping efforts. 
