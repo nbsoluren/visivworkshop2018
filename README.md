@@ -1,12 +1,11 @@
-# visivworkshop2018
-Workshop on web scraping  :japanese_ogre:
+# VISIV Workshop on web scraping  :japanese_ogre:
 
 Technopedia defines it as:
 
 > Web scraping is essentially a form of data mining. Items like weather reports, auction details, market pricing, or any other list of collected data can be sought in Web scraping efforts. 
 
 ## Do a ctrl + u
-That is what we call the page source. I won’t really dwindle down on the terminology for this workshop. You can GOOGLE that. Here let’s try to build something. 
+That is what we call the **page source**. I won’t really dwindle down on the terminology for this workshop. You can **GOOGLE that**. Here let’s try to build something. 
 
 ## We will be using Beautifulsoup 
 Find the documentation here: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
@@ -22,7 +21,6 @@ $ git checkout -b dev/jedd
 
 ## Let's start with the set-up
 Things you don’t really need to put much thought into
-
 #### 1. Time to Import
 Make sure you’ve properly installed beautifulsoup4 on your machines.
 ```
@@ -32,8 +30,7 @@ from bs4 import BeautifulSoup
 #For retrieving page source and img
 from urllib.request import Request, urlopen
 ```
-
-### 2. Function you don't really need to analyze. 
+#### 2. Function you don't really need to analyze. 
 I just googled this. Just know what it does. No need to memorize.
 ```
 #Creating a folder to store it by Chapter
@@ -46,7 +43,7 @@ def make_folder(directory_name):
    directory = os.getcwd() + "/" + directory_name
    return directory_name
 ```
-### Start with a verb
+###### Start with a verb
 ```
 $git add -A 
 $git commit -m “Imported libraries and Added folder creation function”
@@ -58,7 +55,7 @@ Get your thinking caps on.
 Their website is relatively easy to parse through so we’ll use this for now. 
 Search for **“about death”** for uniformity
 
-## 3. Getting the soup. 
+#### 3. Getting the soup. 
 **CTRL+U** to show the page source
 ```
 url = 'https://manganelo.com/manga/about_death'
@@ -72,13 +69,13 @@ webpage = urlopen(req).read()
 soup = BeautifulSoup(webpage, 'html.parser')
 ```
 
-## Commit regularly
+###### Commit regularly
 ```
 $git add -A 
 $git commit -m “Retrieved URL and parsed into Beautifulsoup format”
 ```
 
-## 4. Getting Chapter links.
+#### 4. Getting Chapter links.
 Ctrl+f search for “chapter-list"
 
 I better explain this in the slides to see step by step what each command mean:
@@ -89,20 +86,20 @@ for i in tester:
    chapter_links.append(i.find("span").a['href'])
 ```
 
-## Testing
+###### Testing
 Let’s see if our code works. We should have a list of chapter links.
 ```
 file = open("moot" + ".html","w+")
 file.write(str(chapter_links))
 file.close()
 ```
-## We will push later.
+###### We will push later.
 ```
 $git add -A 
 $git commit -m “Added retrieval of chapter links”
 ```
 
-## 5. Getting Img Links.
+#### 5. Getting Img Links.
 **Ctrl+C** one chapter from your chapter links
 ```
 #Retrieving Page Source of link and storing it in chapter_page
@@ -118,20 +115,20 @@ img_links = []
 for i in soup_chapter:
    img_links.append(i['src'])
 ```
-## Testing
+###### Testing
 Let’s see if our code works. We should have a list of img links.
 ```
 file = open("moot" + ".html","w+")
 file.write(str(img_links))
 file.close()
 ```
-## Commit your work
+###### Commit your work
 ```
 $git add -A 
 $git commit -m “Added retrieval of img links”
 ```
 
-## 6. Downloading Images
+#### 6. Downloading Images
 **Ctrl+C** one img form your img links.
 ```
 #Retrieving Image data and storing it in imgdata 
@@ -148,19 +145,19 @@ output.write(imgdata)
 output.close()
 ```
 
-## After running this look at the network in github
+#### After running this look at the network in github
 ```
 $git add -A 
 $git commit -m “Added retrieval of img links”
 $git push
 ```
-### ALMOST DONE!
+## ALMOST DONE!
 We finished tackling the essential parts of the program, next bits are just modularity stuff, loops. Basically you just loop through the chapters and loop through each img in those chapters. EZ PZ no need to teach :D
 ### Check it out:
 ```
 $git checkout master
 ```
-### Stuff I didn't use sadly:
+## Stuff I didn't use sadly:
 - **.strip([chars])**
 This method returns a copy of the string in which all chars have been stripped from the beginning and the end of the string.
 - **.text**
@@ -181,10 +178,10 @@ Some big sites gives you a more abstracted (easier) way of getting data.
 “Scrapy is a free and open-source web-crawling framework written in Python. Originally designed for web scraping, it can also be used to extract data using APIs or as a general-purpose web crawler. It is currently maintained by Scrapinghub Ltd., a web-scraping development and services company.”
 
 ## References and Useful Links:
-### Projects I've done:
+#### Projects I've done:
 - https://github.com/nbsoluren/tipidPCParser (JSON FORMAT)
 - https://github.com/nbsoluren/stackoverflowparser
-### Resources:
+#### Resources:
 - https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 - Tons of Stackoverflow pages I’ve forgotten
 - https://medium.freecodecamp.org/how-to-scrape-websites-with-python-and-beautifulsoup-5946935d93fe
