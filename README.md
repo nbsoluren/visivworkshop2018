@@ -16,6 +16,7 @@ Find the documentation here: https://www.crummy.com/software/BeautifulSoup/bs4/d
 Start with cloning the repo and creating your own branch
 ```
 $ git clone https://github.com/nbsoluren/visivworkshop2018
+$ cd visivworkshop2018
 $ git checkout -b dev/johndoe
 ```
 
