@@ -1,4 +1,4 @@
-# VISIV Workshop on web scraping  :japanese_ogre:
+# VISIV Workshop on Web Scraping  :japanese_ogre:
 
 Technopedia defines it as:
 
