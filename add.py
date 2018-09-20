@@ -21,4 +21,11 @@ webpage = urlopen(req).read()
 
 #Passing it into Beautifulsoup format.
 soup = BeautifulSoup(webpage, 'html.parser')
-#try commit
+
+chapter_links = []
+tester = soup.find("div", class_="chapter-list").find_all("div",class_="row")
+for i in tester:
+   chapter_links.append(i.find("span").a['href'])
+file = open("moot" + ".html","w+")
+file.write(str(chapter_links))
+file.close()
